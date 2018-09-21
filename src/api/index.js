@@ -15,12 +15,14 @@ axios.defaults.baseURL = Constant.API_URL;
  * @returns {Promise<any>}
  */
 export function get(url, params = {}) {
-    return new Promise((resolve, reject) => {
-        axios.get(url, params)
-            .then(response => {
+    return new Promise((resolve, reject)=> {
+        axios.get(url, {
+            params: params
+        })
+            .then(response=> {
                 resolve(response.data);
             })
-            .catch((error) => {
+            .catch((error)=> {
                 reject(error);
             })
     })
@@ -33,12 +35,12 @@ export function get(url, params = {}) {
  * @returns {Promise<any>}
  */
 export function post(url, params = {}) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject)=> {
         axios.post(url, params)
-            .then(response => {
+            .then(response=> {
                 resolve(response.data);
             })
-            .catch((error) => {
+            .catch((error)=> {
                 reject(error);
             })
     })

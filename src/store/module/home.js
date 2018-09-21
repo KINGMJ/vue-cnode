@@ -7,14 +7,18 @@ const home = {
     },
     mutations: {
         [Types.GET_TOPICS](state, payload) {
-            state.topicsList = state.topicsList.concat(payload);
+            state.topicsList = payload;
         }
     },
     actions: {
-        //获取主题，异步操作
+        /**
+         * 获取主题，异步操作
+         * @param commit
+         * @param payload 传入的对象，{page:page,tab:tab,limit:limit}
+         */
         getTopics({commit}, payload) {
-            Api.Home.getTopics()
-                .then(res => {
+            Api.Home.getTopics(payload)
+                .then(res=> {
                     commit(Types.GET_TOPICS, res.data);
                 });
         }
