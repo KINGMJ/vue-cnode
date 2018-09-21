@@ -11,7 +11,7 @@
 		<md-content>
 			<md-list class="md-triple-line">
 				<template v-for="topic in topicsList">
-					<md-list-item>
+					<md-list-item :to="'/topic/'+topic.id">
 						<md-avatar>
 							<img :src="topic.author.avatar_url" alt="">
 						</md-avatar>
